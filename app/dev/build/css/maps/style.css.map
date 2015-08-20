@@ -1,1 +1,1 @@
-{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,IAAI,CAAC;EACH,UAAU,EAAE,OAAQ,GADhB","file":"style.css","sourcesContent":["body {\n  background: #7676FF; }\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,IAAI,CAAC;EACH,UAAU,EAAE,OAAQ;EACpB,KAAK,EAAE,IAAK,GAFR","file":"style.css","sourcesContent":["body {\n  background: #7676FF;\n  color: #FFF; }\n"],"sourceRoot":"/source/"}

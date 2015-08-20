@@ -7,10 +7,28 @@ var gridApp = angular.module('gridApp', []);
 
 var gridController = function gridController($scope) {
 
-  var animals = [{ name: 'Fluffykins', species: 'rabbit' }, { name: 'Caro', species: 'dog' }, { name: 'Hamilton', species: 'dog' }, { name: 'Harold', species: 'fish' }, { name: 'Ursula', species: 'cat' }, { name: 'Jimmy', species: 'fish' }];
-  this.test = animals.map(function (animal) {
-    return animal.species;
-  });
+    var tiles = [{
+        title: 'Tile 1',
+        size: 'wide'
+    }, {
+        title: 'Tile 2',
+        size: 'small'
+    }, {
+        title: 'Tile 3',
+        size: 'small'
+    }, {
+        title: 'Tile 4',
+        size: 'wide'
+    }, {
+        title: 'Tile 5',
+        size: 'large'
+    }, {
+        title: 'Tile 6',
+        size: 'wide'
+    }];
+    this.test = tiles.map(function (tiles) {
+        return tiles.title;
+    });
 };
 gridController.$inject = ['$scope'];
 gridApp.controller('gridController', gridController);
