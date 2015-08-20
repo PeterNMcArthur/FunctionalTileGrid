@@ -35,7 +35,8 @@ gulp.task('sass', function () {
 	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(sourcemaps.write('./maps'))
-	.pipe(gulp.dest('app/build/css'));
+	.pipe(gulp.dest('app/dev/build/css')) 
+    .pipe(livereload());
 });
 
 gulp.task('lint', function () {
