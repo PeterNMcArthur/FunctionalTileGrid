@@ -13,6 +13,7 @@ var gutil = require('gulp-util');
 var rename = require('gulp-rename');
 var server = require('gulp-express');
 var karma = require('karma');
+var babelify = require("babelify");
 
 
 var paths = {
@@ -78,7 +79,8 @@ var customOpts = {
 var opts = assign({}, watchify.args, customOpts);
 var b = watchify(browserify(opts)); 
 
-// add transformations here
+  b.transform(babelify);
+
 // i.e. b.transform(coffeeify);
 
 gulp.task('browserify', ['lint'], bundle); // so you can run `gulp js` to build the file
