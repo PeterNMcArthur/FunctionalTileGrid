@@ -1,43 +1,36 @@
-// Karma configuration
-// Generated on Mon Aug 17 2015 21:20:32 GMT+0100 (GMT Daylight Time)
+module.exports = function(karma) {
+  karma.set({
 
-module.exports = function(config) {
-    console.log('test');
-  config.set({
+    // include browserify first in used frameworks
+    frameworks: [ 'browserify', 'jasmine' ],
 
-    frameworks: ['browserify', 'jasmine'],
-
-
-    // list of files / patterns to load in the browser
+    // add all your files here,
+    // including non-commonJS files you need to load before your test cases
     files: [
-      'test/spec/**/*Spec.js',
-      'test/spec/*Spec.js'
+      'app/dev/**/*.js',
+      'test/**/*.js'
     ],
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    // add preprocessor to the files that should be
+    // processed via browserify
     preprocessors: {
-         'test/**/*Spec.js': ['browserify']
+      'app/dev/**/*.js': [ 'browserify' ],
+      'test/**/*.js': [ 'browserify' ],
     },
-    reporters: ['dots', 'spec', 'failed'],
+    browsers : ['PhantomJS'],
 
-    port: 9876,
+    // see what is going on
+    logLevel: 'LOG_DEBUG',
+    reporters: ['dots'],
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
-
-      logLevel: config.LOG_INFO,
-
-
-    // enable / disable watching file and executing tests whenever any file changes
+    // use autoWatch=true for quick and easy test re-execution once files change
     autoWatch: true,
 
-
-   browsers: ['PhantomJS', 'Chrome'],
-
-
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
-  })
-}
+    // add additional browserify configuration properties here
+    // such as transform and/or debug=true to generate source maps
+    browserify: {
+      debug: true,      
+      transform: [ 'brfs' ]
+    }
+  });
+};
